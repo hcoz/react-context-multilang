@@ -1,15 +1,11 @@
-import tr from './tr';
-import en from './en';
-import de from './de';
+import tr from './tr.json';
+import en from './en.json';
+import de from './de.json';
 
-export const dictionaryList = {
-  tr,
-  en,
-  de
+export const dictionaryList = { en, tr, de };
+
+export const languageOptions = {
+  en: 'English',
+  tr: 'Türkçe',
+  de: 'Deutsch'
 };
-
-export const languageOptions = [
-  { id: 'tr', text: 'Turkce' },
-  { id: 'en', text: 'English'},
-  { id: 'de', text: 'Deutsch' }
-];

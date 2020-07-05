@@ -1,30 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { languageOptions } from '../languages';
-
 import { LanguageContext } from '../containers/Language';
 
 export default function LanguageSelector() {
-  const languageContext = useContext(LanguageContext);
+  const { userLanguage, userLanguageChange } = useContext(LanguageContext);
 
-  const handleLanguageChange = (event) => {
-    const selectedLanguage = languageOptions.find(item => item.id === event.target.value);
-    // set selected language by calling context method
-    languageContext.setLanguage(selectedLanguage);
-  };
+  // set selected language by calling context method
+  const handleLanguageChange = e => userLanguageChange(e.target.value);
+
+  useEffect(() => {
+    let defaultLanguage = window.localStorage.getItem('rcml-lang');
+    if (!defaultLanguage) {
+      defaultLanguage = window.navigator.language.substring(0, 2);
+    }
+    userLanguageChange(defaultLanguage);
+  }, [userLanguageChange]);
 
   return (
     <select
       onChange={handleLanguageChange}
-      value={languageContext.language.id}
+      value={userLanguage}
     >
-      {languageOptions.map(item => (
-        <option
-          key={item.id}
-          value={item.id}
-        >
-          {item.text}
-        </option>
+      {Object.entries(languageOptions).map(([id, name]) => (
+        <option key={id} value={id}>{name}</option>
       ))}
     </select>
   );

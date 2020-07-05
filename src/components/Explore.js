@@ -21,7 +21,7 @@ export default function Explore() {
         <p>{clickText}</p>
       </div>
 
-      <a href="https://halilcanozcelik.com">
+      <a href="https://halilcanozcelik.com" target="_blank" rel="noopener noreferrer">
         <Text tid="aboutMe" />
       </a>
     </div>

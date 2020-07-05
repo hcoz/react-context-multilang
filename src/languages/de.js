@@ -1,9 +1,0 @@
-const de = {
-  exploreHeader: 'Erkunden',
-  welcomeDescription: 'Dies ist eine Demo-App für mehrsprachige Webseiten mit React Context API',
-  clickMe: 'Klick mich',
-  aboutMe: 'Weitere Informationen zum Autor',
-  buttonClicked: 'Sie haben auf die Schaltfläche geklickt'
-};
-
-export default de;

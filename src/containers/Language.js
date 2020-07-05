@@ -4,35 +4,34 @@ import { languageOptions, dictionaryList } from '../languages';
 
 // create the language context with default selected language
 export const LanguageContext = createContext({
-  language: languageOptions[0],
-  dictionary: dictionaryList[languageOptions[0].id]
+  userLanguage: 'en',
+  dictionary: dictionaryList.en
 });
 
 // it provides the language context to app
-export function LanguageProvider(props) {
-  const languageContext = useContext(LanguageContext);
-  const [language, setLanguage] = useState(languageContext.language);
-  const [dictionary, setDictionary] = useState(languageContext.dictionary);
+export function LanguageProvider({ children }) {
+  const [userLanguage, setUserLanguage] = useState('en');
 
   const provider = {
-    language,
-    dictionary,
-    setLanguage: (selectedLanguage) => {
-      setLanguage(selectedLanguage);
-      setDictionary(dictionaryList[selectedLanguage.id]);
+    userLanguage,
+    dictionary: dictionaryList[userLanguage],
+    userLanguageChange: selected => {
+      const newLanguage = languageOptions[selected] ? selected : 'en'
+      setUserLanguage(newLanguage);
+      window.localStorage.setItem('rcml-lang', newLanguage);
     }
   };
 
   return (
     <LanguageContext.Provider value={provider}>
-      {props.children}
+      {children}
     </LanguageContext.Provider>
   );
 };
 
 // get text according to id & current language
-export function Text(props) {
+export function Text({ tid }) {
   const languageContext = useContext(LanguageContext);
 
-  return languageContext.dictionary[props.tid];
+  return languageContext.dictionary[tid] || tid;
 };
