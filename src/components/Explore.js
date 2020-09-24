@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
-import { Text } from '../containers/Language';
+import { Text, LanguageContext } from '../containers/Language';
 
 export default function Explore() {
   const [clickText, setClickText] = useState();
+  const { dictionary } = useContext(LanguageContext);
 
   const handleClick = () => {
     setClickText(<Text tid="buttonClicked" />);
@@ -15,6 +16,7 @@ export default function Explore() {
       <p><Text tid="welcomeDescription" /></p>
 
       <div>
+        <input type="text" placeholder={dictionary.enterText} />
         <button onClick={handleClick}>
           <Text tid="clickMe" />
         </button>
