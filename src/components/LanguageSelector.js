@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
 import { languageOptions } from '../languages';
 import { LanguageContext } from '../containers/Language';
@@ -8,14 +8,6 @@ export default function LanguageSelector() {
 
   // set selected language by calling context method
   const handleLanguageChange = e => userLanguageChange(e.target.value);
-
-  useEffect(() => {
-    let defaultLanguage = window.localStorage.getItem('rcml-lang');
-    if (!defaultLanguage) {
-      defaultLanguage = window.navigator.language.substring(0, 2);
-    }
-    userLanguageChange(defaultLanguage);
-  }, [userLanguageChange]);
 
   return (
     <select
