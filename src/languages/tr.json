@@ -4,5 +4,8 @@
   "clickMe": "Bana tıkla",
   "aboutMe": "Yazar hakkinda daha fazlabilgi için..",
   "buttonClicked": "Butona tıkladın!",
-  "enterText": "Cevabınızı girin"
+  "enterText": "Cevabınızı girin",
+  "option1": "Secenek 1",
+  "option2": "Secenek 2",
+  "option3": "Secenek 3"
 }
