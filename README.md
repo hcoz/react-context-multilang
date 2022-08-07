@@ -6,4 +6,4 @@ This is an example architecture & implementation for multi-language website with
 - https://hco.medium.com/create-a-multi-language-website-with-react-context-api-10f9544bee09
 
 ### Here is the demo site:
-- https://nice-cliff-047044a03.azurestaticapps.net
+- https://62f0132c8e5c0c4d8de1982a--dapper-crumble-ccf7bf.netlify.app/
